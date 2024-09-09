@@ -1,9 +1,13 @@
 
-body {
+/* body {
   background: rgb(2,0,36);
   background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(0,212,255,1) 0%, rgba(9,9,121,1) 100%);
-}
+} */
 
+ .full-body{
+  background: rgb(2,0,36);
+  background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(0,212,255,1) 0%, rgba(9,9,121,1) 100%);
+ }
 .container {
   display:flex !important;
   flex-direction: column;
@@ -13,6 +17,7 @@ body {
   max-width: 500px;
   width: 100%;
   margin: auto;
+ 
 }
 .container > form {
   width: 70%;

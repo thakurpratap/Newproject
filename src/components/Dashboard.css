@@ -1,0 +1,108 @@
+.navbar{
+    display: flex;
+    justify-content: space-around;
+    background-color: white;
+    background: rgb(2,0,36);
+    background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgb(244, 106, 150) 0%, rgb(96, 96, 221) 100%);
+    /* margin: 0 10px 0 10px;
+    border-radius: 10px; */
+}
+.nav-logo{
+    display: flex;
+    font-weight: 500;
+    gap: 10px;
+}
+.img{
+    width: 50px;
+    height: 50px;
+}
+.nav-logo h5{
+    font-size: 30px;
+    font-weight: 500;
+}
+.nav-menu{
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    list-style: none;
+    font-size: 20px;
+    font-weight: 500;
+    color: #626262;
+}
+.nav-menu li{
+    /* margin-top: 10px; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    cursor: pointer;
+}
+/* .nav-menu li.active {
+    color: orange; 
+  } */
+  .li link{
+    text-decoration: none;
+    /* background-color: #110202; */
+}
+
+/* li.active {
+    color: orange;
+  } */
+.login{
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+}
+.login button{
+    height: 38px;
+    width: 100px;
+    outline: none;
+    border: 1px solid #7a7a7a;
+    border-radius: 75px;
+    color: #110202;
+    background-color: white;
+}
+.login img{
+    color: wheat;
+}
+.cart-count{
+
+    height: 22px;
+    width: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: -40px;
+    border-radius: 11px;
+    font-size: 15px;
+    font-weight: 100;
+    background-color: red;
+    color: wheat;
+}
+.carousel-control-next-icon {
+    background-color: black;
+  }
+.carousel-control-prev-icon {
+    background-color: black;
+  }
+  .carousel-img{
+    height: 600px;
+    /* object-fit: cover; */
+  }
+  .contain{
+    height: 250px;
+    /* background-color: #bca39d; */
+   
+  }
+  .name{
+    align-items: center;
+    justify-content: space-around;
+    display: flex;
+    padding-top: 60px;
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+  .num h6 {
+    line-height: 1.5; 
+    max-width: 250px; 
+}

@@ -22,6 +22,7 @@ function Signup() {
   
   return (
     <>
+    <div className="full-body">
     <div className="container">
         <form onSubmit={handleSubmit(onSubmit)}>
           <h1>Registration </h1>
@@ -112,6 +113,7 @@ function Signup() {
           </span>
           </div>
         </form>
+      </div>
       </div>
     </>
   
