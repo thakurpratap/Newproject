@@ -7,6 +7,7 @@ import Homepage from './components/Homepage';
 import Aboutpage from './components/Aboutpage';
 import Shoppage from './components/Shoppage';
 import Contactpage from './components/Contactpage';
+import ProductDetails from './components/ProductDetails';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/aboutpage" exact element={<Aboutpage />} />
           <Route path="/shoppage" exact element={<Shoppage />} />
           <Route path="/contactpage" exact element={<Contactpage />} />
+          <Route path="/product/:id" exact element={<ProductDetails />} />
         </Routes>
       </BrowserRouter>
     </>
