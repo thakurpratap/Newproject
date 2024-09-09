@@ -20,6 +20,7 @@ function Signin() {
 
   return (
     <>
+     <div className="full-body">
 <div className="container">
         <form onSubmit={handleSubmit(onSubmit)}>
           <h1>LOG IN</h1>
@@ -82,7 +83,7 @@ function Signin() {
           </div>
         </form>
       </div>
-   
+      </div>
             </>
   )
 }
