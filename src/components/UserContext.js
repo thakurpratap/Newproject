@@ -50,7 +50,6 @@ export const UserProvider = ({ children }) => {
     // }
 
     const { data, error, isLoading } = useQuery({
-        // queryKey: ['users'],
         queryFn: fetchUsers
     });
 
@@ -60,3 +59,5 @@ export const UserProvider = ({ children }) => {
         </UserContext.Provider>
     );
 }
+
+
