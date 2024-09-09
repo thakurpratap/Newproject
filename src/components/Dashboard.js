@@ -8,11 +8,8 @@ import product2 from '../Assets/2ndpage.png'
 import product3 from '../Assets/3rdpage.png'
 import product4 from '../Assets/4thpage.png'
 import product5 from '../Assets/5thpage.png'
-
 import './Dashboard.css';
-// import Aboutpage from './Aboutpage';
-// import Shoppage from './Shoppage';
-// import Contactpage from './Contactpage';
+
 
 
 function Dashboard() {
@@ -119,11 +116,6 @@ function Dashboard() {
 
   </div>
 </div>
-
-{/* <Aboutpage></Aboutpage>
-<Shoppage></Shoppage>
-<Contactpage></Contactpage> */}
-
     </>
     );
 }

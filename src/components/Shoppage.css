@@ -1,0 +1,31 @@
+.items{
+    display: flex;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    margin: 6px ;
+    gap: 20px; 
+}
+.item{
+    border: 1px solid #ddd; 
+    padding: 10px;
+}
+.item-detais{
+    
+display: flex;
+gap: 20px;
+}
+.item-price{
+color: #374151;
+font-size: 18px;
+font-weight: 600;
+}
+.item-discountPercentage{
+    color: #374151;
+    font-weight: 600;
+}
+.item-rating{
+    justify-content: left;
+    display: flex;
+    margin-bottom: 10px;
+    color: green;
+}

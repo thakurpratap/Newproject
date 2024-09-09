@@ -1,8 +1,11 @@
 import React, { createContext, useState } from 'react';
+import { useQuery, } from '@tanstack/react-query';
+import axios from 'axios';
 
 export const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
+    
     const [users, setUsers] = useState([]);
     const [currentuser, SetCurrentuser] = useState([])
 
@@ -36,8 +39,23 @@ export const UserProvider = ({ children }) => {
         // SetCurrentuser(null);
     };
 
+    const fetchUsers = async () => {
+        const { data } = await axios.get('https://dummyjson.com/products');
+        return data;
+    };
+
+    // const fetchUsers = async() =>{
+    //     const data = await axios.get('https://dummyjson.com/products');
+    //     return data;
+    // }
+
+    const { data, error, isLoading } = useQuery({
+        // queryKey: ['users'],
+        queryFn: fetchUsers
+    });
+
     return (
-        <UserContext.Provider value={{ users,Exitsuser, currentuser, addUser, logoutUser }}>
+        <UserContext.Provider value={{ users,Exitsuser, currentuser, addUser, logoutUser, data, error, isLoading  }}>
             {children}
         </UserContext.Provider>
     );
