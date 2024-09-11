@@ -1,43 +1,62 @@
-import React, {useContext} from "react";
-import {UserContext} from './UserContext'
+import React, { useContext } from "react";
+import { UserContext } from "./UserContext";
 import { useParams } from "react-router-dom";
+import "./ProductDetails.css";
 // import { StarRatings } from './react-star-ratings';
 
 function ProductDetails() {
+  const { id } = useParams(); //get the product id from the react router dom
+  const { data , addToCart } = useContext(UserContext);
+  // const product =  data?.products.find (p => p.id === parseInt(id))
+  const product = data?.products.find((p) => p.id.toString() === id);
 
-  const {id} = useParams();  //get the product id from the react router dom
-const {data} = useContext(UserContext)
-// const product =  data?.products.find (p => p.id === parseInt(id))
-const product = data?.products.find(p => p.id.toString() === id);
+  // const findPalette = id => seedPalettes.find(palette => palette.id == id);
+  if (!product) {
+    return "product is not find";
+  }
 
-// const findPalette = id => seedPalettes.find(palette => palette.id == id);
-
-if(!product){
-  return "product is not find"
-}
+  const handleAddToCart = () => {
+    addToCart(product); 
+  };
 
   return (
     <>
-      <h1>ProductDetails</h1>
-      <img
-        src={product.images[0]}
-        alt={""}
-        style={{
-          maxWidth: "200px",
-          maxHeight: "200px",
-          marginRight: "10px",
-        }}
-      />
-      <span className="item-rating">Rating: {product.rating}*</span>
+      <div className="productdetailsdisplay">
+        <div className="productdetaildisplay-left">
+          <div className="productimg-list">
+            <img src={product.images[1]} alt="" />
+          </div>
+          <div className="productdisplay-img">
+            <img
+              src={product.images[0]}
+              alt=""
+              className="productdisplay-main-img"
+            />
+          </div>
+        </div>
 
-      <h6>{product.title}</h6>
+        <div className="productdetaildisplay-right">
+          <h1>{product.title}</h1>
 
-<div className="item-detais">
-  <div className="item-price">Price: ${product.price}</div>
-  <div className="item-discountPercentage">
-    Discount: {product.discountPercentage}%
-  </div>
-  </div>
+          <div className="product-price">
+            <div className="price">Price: ${product.price}</div>
+            <div className="product-discount">
+              {product.discountPercentage}% Off
+            </div>
+          </div>
+
+          <div className="product-description">{product.description}</div>
+          <div className="add-to-card">
+            <button onClick={handleAddToCart}>ADD TO CART</button>
+            <h6 className="product-category">
+              <span>category : {product.category}</span>
+            </h6>
+            <h6 className="product-category">
+              <span>Tag : {product.tags}</span>
+            </h6>
+          </div>
+        </div>
+      </div>
     </>
   );
 }

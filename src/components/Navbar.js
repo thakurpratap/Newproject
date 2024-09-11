@@ -2,14 +2,20 @@ import React, { useContext, useState } from "react";
 import { UserContext } from "./UserContext";
 import { Link, useNavigate } from "react-router-dom";
 import logo3 from "../Assets/logo.3.png";
-
-import Carticon from "../Assets/cart_icon.png";
 import "./Dashboard.css";
+// import Cart from "./Cart";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import Aboutpage from "./Aboutpage";
+import Dashboard from "./Dashboard";
 
 function Navbar() {
-  const { currentuser, logoutUser } = useContext(UserContext);
+  const { currentuser, logoutUser, cart} = useContext(UserContext);
   const [active, setActive] = useState("home");
-  console.log(currentuser);
+ 
+  // currentuser = currentuser?.length>0 ? currentuser : JSON.parse(localStorage.getItem('users'))
+  // console.log(currentuser);
 
   const navigate = useNavigate();
 
@@ -20,6 +26,11 @@ function Navbar() {
 
   const handleLoginClick = () => {
     navigate("/signin");
+  };
+
+  const handleCartClick = () => {
+    navigate('/cart')
+    console.log("Handle Cart Click");
   };
 
   return (
@@ -66,17 +77,26 @@ function Navbar() {
         </ul>
         <div className="login">
           <p class="navbar-brand">
-            {currentuser ? "Welcome" + " " + currentuser.firstname : ""}
+            {/* {currentuser ? "Welcome" + " " + currentuser.firstname : "" } */}
+            {currentuser ? `Welcome ${currentuser.firstname}` : ""}
+
           </p>
-          {currentuser ? (
+          {currentuser? (
             <button onClick={handleLogout}>Logout</button>
           ) : (
             <button onClick={handleLoginClick}>Login</button>
           )}
-          <img src={Carticon} alt="" className="cart" />
-          <div className="cart-count">0</div>
+          <FontAwesomeIcon
+            icon={faShoppingCart}
+            className="carts"
+            onClick={handleCartClick}
+            style={{ cursor: "pointer", fontSize: "24px" }}
+          />
+          <div className="cart-count">{cart.length}</div>
         </div>
       </div>
+      {/* <Dashboard/> */}
+      {/* <Aboutpage /> */}
     </>
   );
 }
