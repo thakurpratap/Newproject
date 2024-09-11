@@ -1,0 +1,31 @@
+.contact-section{
+    padding: 40px;
+    text-align: center;
+    color: brown
+}
+.map{
+    display: flex;
+    margin-top: 45px;
+    border: 1px solid #e76262;
+    
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(222, 121, 121, 0.1);
+}
+.contact-form{
+    width: 70%;
+    text-align: left;
+}
+/* .google-map-code{
+    margin-top: 45px;
+} */
+.containers{
+    width: 90%;
+    margin-left: 80px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(222, 121, 121, 0.1);
+}
