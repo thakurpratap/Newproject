@@ -40,14 +40,18 @@ function Aboutpage() {
         </div>
 
         <div className="call-to-action">
-          <h4>Want to Know More?</h4>
+          <h1>Want to Know More?</h1>
           <button className="btn btn-primary">
             <Link className="links" to="/contactpage">
               Contact Us
             </Link>
           </button>
         </div>
+
       </div>
+
+
+     
     </>
   );
 }

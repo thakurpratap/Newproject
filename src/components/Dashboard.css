@@ -69,10 +69,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: -36px;
+    margin-left: -30px;
     border-radius: 51px;
-    font-size: 10px;
-    font-weight: 300;
+    font-size: 12px;
+    font-weight: 600;
     background-color: red;
     color: wheat;
 }
@@ -88,8 +88,20 @@
     padding-left: 80px;
     padding-right: 80px;
   }
+  .icons{
+    margin-left: 10px;
+height: 20px;
+width: 30px;
+
+  }
   .num h6 {
     line-height: 1.5; 
     max-width: 250px; 
 }
-
+.carts {
+  margin-left: 10px;
+  margin-top: 8px;
+  /* height: 20px; */
+  /* width: 30px; */
+  cursor: pointer;
+}

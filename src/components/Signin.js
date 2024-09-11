@@ -30,7 +30,7 @@ function Signin() {
             <h1>LOG IN</h1>
             <div className="ui divider"></div>
             <div className="ui form">
-              <div className="field">
+              {/* <div className="field">
                 <label>First name</label>
                 <input
                   type="text"
@@ -40,7 +40,7 @@ function Signin() {
                     required: "Firstname is required",
                   })}
                 />
-              </div>
+              </div> */}
               <div className="field">
                 <label>Email</label>
                 <input

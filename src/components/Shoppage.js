@@ -32,7 +32,7 @@ function Shoppage() {
               <div className="item-discountPercentage">
                 Discount: {product.discountPercentage}%
               </div>
-              <div className="item-rating">Rating: {product.rating}*</div>
+              {/* <div className="item-rating">Rating: {product.rating}*</div> */}
             </div>
           </div>
         ))}
