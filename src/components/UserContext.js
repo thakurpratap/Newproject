@@ -1,63 +1,76 @@
-import React, { createContext, useState } from 'react';
-import { useQuery, } from '@tanstack/react-query';
-import axios from 'axios';
+import React, { createContext, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 
 export const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
-    
-    const [users, setUsers] = useState([]);
-    const [currentuser, SetCurrentuser] = useState([])
+  const [users, setUsers] = useState([]);
+  const [currentuser, SetCurrentuser] = useState(null);
 
-    const addUser = (userData) => {
-        // const userExists = users.some(user => user.email === userData.email);
-        // console.log('Checking if user exists:', userData);
-        const userExists = users.some(user => user.firstname === userData.firstname  && user.email === userData.email && user.password === userData.password);
-        if (userExists) {
-            return { error: "This email ID already exists. Please go to sign-in page." };
-        }
-        setUsers([...users, userData]);
-        SetCurrentuser(userData)
-        return { success: true };
-    };
-
-   const Exitsuser = (userData) => {
-    // const presentuser = users.some (user => user.firstname === userData.firstname  && user.email === userData.email && user.password === userData.password)
-    const presentuser = users.find(user => user.email === userData.email);
-    if (presentuser) {
-        if (presentuser.password === userData.password) {
-            SetCurrentuser(presentuser);
-            return { success: true };
-        } else {
-            return { error: "Incorrect password. Please try again." };
-        }
-    } else {
-        return { error: "This email ID does not exist. Please go to the Registration page." };
-    }
-      }
-    const logoutUser = () => {
-        // SetCurrentuser(null);
-    };
-
-    const fetchUsers = async () => {
-        const { data } = await axios.get('https://dummyjson.com/products');
-        return data;
-    };
-
-    // const fetchUsers = async() =>{
-    //     const data = await axios.get('https://dummyjson.com/products');
-    //     return data;
-    // }
-
-    const { data, error, isLoading } = useQuery({
-        queryFn: fetchUsers
-    });
-
-    return (
-        <UserContext.Provider value={{ users,Exitsuser, currentuser, addUser, logoutUser, data, error, isLoading  }}>
-            {children}
-        </UserContext.Provider>
+  const addUser = (userData) => {
+    // const userExists = users.some(user => user.email === userData.email);
+    // console.log('Checking if user exists:', userData);
+    const userExists = users.some(
+      (user) =>
+        user.firstname === userData.firstname &&
+        user.email === userData.email &&
+        user.password === userData.password
     );
-}
+    if (userExists) {
+      return {
+        error: "This email ID already exists. Please go to sign-in page.",
+      };
+    }
+    setUsers([...users, userData]);
+    SetCurrentuser(userData);
+    return { success: true };
+  };
 
+  const Exitsuser = (userData) => {
+    // const presentuser = users.some (user => user.firstname === userData.firstname  && user.email === userData.email && user.password === userData.password)
+    const presentuser = users.find((user) => user.email === userData.email);
+    if (presentuser) {
+      if (presentuser.password === userData.password) {
+        SetCurrentuser(presentuser);
+        return { success: true };
+      } else {
+        return { error: "Incorrect password. Please try again." };
+      }
+    } else {
+      return {
+        error:
+          "This email ID does not exist. Please go to the Registration page.",
+      };
+    }
+  };
+  const logoutUser = () => {
+    SetCurrentuser(null);
+  };
 
+  const fetchUsers = async () => {
+    const { data } = await axios.get("https://dummyjson.com/products");
+    return data;
+  };
+
+  const { data, error, isLoading } = useQuery({
+    queryFn: fetchUsers,
+  });
+
+  return (
+    <UserContext.Provider
+      value={{
+        users,
+        Exitsuser,
+        currentuser,
+        addUser,
+        logoutUser,
+        data,
+        error,
+        isLoading,
+      }}
+    >
+      {children}
+    </UserContext.Provider>
+  );
+};
