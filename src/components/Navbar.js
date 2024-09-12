@@ -8,9 +8,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 
 function Navbar() {
-  const { currentuser, logoutUser, cart} = useContext(UserContext);
+  const { currentuser, logoutUser, cart } = useContext(UserContext);
   const [active, setActive] = useState("home");
- 
+
   // currentuser = currentuser?.length>0 ? currentuser : JSON.parse(localStorage.getItem('users'))
   // console.log(currentuser);
 
@@ -26,7 +26,7 @@ function Navbar() {
   };
 
   const handleCartClick = () => {
-    navigate('/cart')
+    navigate("/cart");
     console.log("Handle Cart Click");
   };
 
@@ -76,9 +76,8 @@ function Navbar() {
           <p class="navbar-brand">
             {/* {currentuser ? "Welcome" + " " + currentuser.firstname : "" } */}
             {currentuser ? `Welcome ${currentuser.firstname}` : ""}
-
           </p>
-          {currentuser? (
+          {currentuser ? (
             <button onClick={handleLogout}>Logout</button>
           ) : (
             <button onClick={handleLoginClick}>Login</button>

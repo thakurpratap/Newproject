@@ -3,7 +3,6 @@ import conbanner1 from "../Assets/con1.png";
 import "./contact.css";
 
 function Contactpage() {
-
   return (
     <>
       <div className="contact-section">

@@ -6,7 +6,7 @@ import "./ProductDetails.css";
 
 function ProductDetails() {
   const { id } = useParams(); //get the product id from the react router dom
-  const { data , addToCart } = useContext(UserContext);
+  const { data, addToCart } = useContext(UserContext);
   // const product =  data?.products.find (p => p.id === parseInt(id))
   const product = data?.products.find((p) => p.id.toString() === id);
 
@@ -16,7 +16,7 @@ function ProductDetails() {
   }
 
   const handleAddToCart = () => {
-    addToCart(product); 
+    addToCart(product);
   };
 
   return (
