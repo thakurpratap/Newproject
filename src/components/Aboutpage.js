@@ -50,23 +50,30 @@
 
 //       </div>
 
+
+     
 //     </>
 //   );
 // }
 
 // export default Aboutpage;
 
-import React, { useState } from "react";
+
+
+
+
+import React, {useState} from "react";
 import offerbanner3 from "../Assets/ele3.png";
 import "./Aboutpage.css";
 // import { Link } from "react-router-dom";
 // import { Button } from 'primereact/button';
-import { Dialog } from "primereact/dialog";
+import { Dialog } from 'primereact/dialog';
 import "primereact/resources/themes/lara-light-cyan/theme.css";
 
 import { useForm } from "react-hook-form";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
+
 
 function Aboutpage() {
   // const notify = () => toast("Contact Detais submited");
@@ -78,10 +85,11 @@ function Aboutpage() {
 
   // const [formError, setFormError] = useState(null);
 
-  const onSubmit = () => {
-    toast.success("Form submitted successfully!");
+  const onSubmit = () =>{
+    toast.success('Form submitted successfully!');
     setVisible(false);
-  };
+  }
+
 
   const [visible, setVisible] = useState(false);
 
@@ -120,78 +128,83 @@ function Aboutpage() {
           </div>
         </div>
 
-        <div className="call-to-action">
+        {/* <div className="call-to-action">
           <h1>Want to Know More?</h1>
-          <button onClick={() => setVisible(true)} className="btn btn-primary">
-            Contact Us
+          <button className="btn btn-primary">
+            <Link className="links" to="/contactpage">
+              Contact Us
+            </Link>
           </button>
-          {/* <Button  className="btn btn-primary" label=" Contact Us" icon="pi pi-external-link" onClick={() => setVisible(true)} /> */}
-          <Dialog
-            header="Contact Us"
-            visible={visible}
-            style={{ width: "60vw" }}
-            onHide={() => {
-              if (!visible) return;
-              setVisible(false);
-            }}
-          >
-            <div className="">
-              <div className="container" style={{ height: "20%" }}>
-                <form onSubmit={handleSubmit(onSubmit)}>
-                  <h1>LOG IN</h1>
-                  <div className="ui divider"></div>
-                  <div className="ui form">
-                    <div className="field">
-                      <label>First name</label>
-                      <input
-                        type="text"
-                        name="firstname"
-                        placeholder="Firstname"
-                        {...register("firstname", {
-                          required: "Firstname is required",
-                        })}
-                      />
-                    </div>
-                    <p>{errors.firstname?.message}</p>
-                    <div className="field">
-                      <label>Email</label>
-                      <input
-                        type="email"
-                        placeholder="Email"
-                        {...register("email", {
-                          required: "Email is required",
-                          // required : true,
-                          pattern: {
-                            value: /^\S+@\S+$/i,
-                            message: "This is not a valid email",
-                          },
-                        })}
-                      />
-                    </div>
-                    <p>{errors.email?.message}</p>
-                    <div className="field">
-                      <label>Address</label>
-                      <input
-                        type="text"
-                        placeholder="Address"
-                        {...register("password", {
-                          required: "address is required",
-                          minLength: {
-                            value: 10,
-                            message: "address must be more than 10 words",
-                          },
-                        })}
-                      />
-                    </div>
-                    <p>{errors.password?.message}</p>
-                    <button className="fluid ui button blue">Submit</button>
-                  </div>
-                </form>
+        </div> */}
+
+        <div className="call-to-action">
+        <h1>Want to Know More?</h1>
+        <button onClick={() => setVisible(true)} className="btn btn-primary">
+              Contact Us
+          </button>
+        {/* <Button  className="btn btn-primary" label=" Contact Us" icon="pi pi-external-link" onClick={() => setVisible(true)} /> */}
+      <Dialog header="Contact Us" visible={visible} style={{ width: '60vw' }} onHide={() => {if (!visible) return; setVisible(false); }}>
+      <div className=''>
+        <div className="container" style={{height : "20%"}}>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <h1>LOG IN</h1>
+            <div className="ui divider"></div>
+            <div className="ui form">
+              <div className="field">
+                <label>First name</label>
+                <input
+                  type="text"
+                  name="firstname"
+                  placeholder="Firstname"
+                  {...register("firstname", {
+                    required: "Firstname is required",
+                  })}
+                />
+              </div> 
+              <p>{errors.firstname?.message}</p>
+              <div className="field">
+                <label>Email</label>
+                <input
+                  type="email"
+                  placeholder="Email"
+                  {...register("email", {
+                    required: "Email is required",
+                    // required : true,
+                    pattern: {
+                      value: /^\S+@\S+$/i,
+                      message: "This is not a valid email",
+                    },
+                  })}
+                />
               </div>
+              <p>{errors.email?.message}</p>
+              <div className="field">
+                <label>Address</label>
+                <input
+                  type="text"
+                  placeholder="Address"
+                  {...register("password", {
+                    required: "address is required",
+                    minLength: {
+                      value: 10,
+                      message: "address must be more than 10 words",
+                    },
+                  })}
+                />
+              </div>
+              <p>{errors.password?.message}</p>
+              <button className="fluid ui button blue">Submit</button>
             </div>
-          </Dialog>
+          </form>
         </div>
-        <ToastContainer />
+      </div>
+</Dialog>
+ </div>
+ <ToastContainer />
+
+
+
+
       </div>
     </>
   );
