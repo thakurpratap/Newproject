@@ -4,11 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 import logo3 from "../Assets/logo.3.png";
 import "./Dashboard.css";
 // import Cart from "./Cart";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
-import Aboutpage from "./Aboutpage";
-import Dashboard from "./Dashboard";
 
 function Navbar() {
   const { currentuser, logoutUser, cart} = useContext(UserContext);
@@ -95,8 +92,6 @@ function Navbar() {
           <div className="cart-count">{cart.length}</div>
         </div>
       </div>
-      {/* <Dashboard/> */}
-      {/* <Aboutpage /> */}
     </>
   );
 }

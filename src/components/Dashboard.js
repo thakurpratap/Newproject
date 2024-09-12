@@ -2,13 +2,8 @@ import React from "react";
 import SaleBanner from "../Assets/sale.png";
 import "./Dashboard.css";
 import Aboutpage from "./Aboutpage";
-import shipment from '../Assets/delivery-truck.png'
-import shipment1 from '../Assets/delivery-truck (1).png'
-import shipment2 from '../Assets/delivery-truck.png'
-import shipment3 from '../Assets/distribution (1).png'
 import shipment4 from '../Assets/distribution.png'
 import Best from '../Assets/best.png'
-import shopbag1 from '../Assets/cart_icon.png'
 import shopbag from '../Assets/order.png'
 import payment from '../Assets/credit-card.png'
 
