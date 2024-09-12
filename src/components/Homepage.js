@@ -4,7 +4,7 @@ import Dashboard from "./Dashboard";
 function Homepage() {
   return (
     <>
-      <Dashboard/>
+      <Dashboard />
       {/* <Aboutpage/> */}
       {/* <div>Homepage</div> */}
     </>

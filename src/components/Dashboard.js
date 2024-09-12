@@ -2,15 +2,10 @@ import React from "react";
 import SaleBanner from "../Assets/sale.png";
 import "./Dashboard.css";
 import Aboutpage from "./Aboutpage";
-import shipment from '../Assets/delivery-truck.png'
-import shipment1 from '../Assets/delivery-truck (1).png'
-import shipment2 from '../Assets/delivery-truck.png'
-import shipment3 from '../Assets/distribution (1).png'
-import shipment4 from '../Assets/distribution.png'
-import Best from '../Assets/best.png'
-import shopbag1 from '../Assets/cart_icon.png'
-import shopbag from '../Assets/order.png'
-import payment from '../Assets/credit-card.png'
+import shipment4 from "../Assets/distribution.png";
+import Best from "../Assets/best.png";
+import shopbag from "../Assets/order.png";
+import payment from "../Assets/credit-card.png";
 
 function Dashboard() {
   return (
@@ -70,7 +65,9 @@ function Dashboard() {
       <div className="contain">
         <div className="name">
           <div className="num">
-            <h5>01 <img src={shopbag} className="icons" alt="" /></h5>
+            <h5>
+              01 <img src={shopbag} className="icons" alt="" />
+            </h5>
             <h1>Order Online</h1>
             <div className="tex">
               <h6>
@@ -82,7 +79,9 @@ function Dashboard() {
           </div>
 
           <div className="num">
-            <h5>02 <img src={shipment4} className="icons" alt="" /></h5>
+            <h5>
+              02 <img src={shipment4} className="icons" alt="" />
+            </h5>
             <h1>Free Shipping</h1>
             <div className="tex">
               <h6>
@@ -93,7 +92,9 @@ function Dashboard() {
           </div>
 
           <div className="num">
-            <h5>03 <img src={Best} className="icons" alt="" /></h5>
+            <h5>
+              03 <img src={Best} className="icons" alt="" />
+            </h5>
             <h1>Quality Products</h1>
             <div className="tex">
               <h6>
@@ -104,7 +105,9 @@ function Dashboard() {
           </div>
 
           <div className="num">
-            <h5>04 <img src={payment} className="icons" alt="" /></h5>
+            <h5>
+              04 <img src={payment} className="icons" alt="" />
+            </h5>
             <h1>Safe Payment</h1>
             <div className="tex">
               <h6>
