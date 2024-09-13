@@ -1,16 +1,15 @@
-
 /* body {
   background: rgb(2,0,36);
   background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(0,212,255,1) 0%, rgba(9,9,121,1) 100%);
 } */
 
- .full-body{
-  background: rgb(2,0,36);
+.full-body {
+  background: rgb(2, 0, 36);
   background: #dfdfdf;
   /* background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(0,212,255,1) 0%, rgba(9,9,121,1) 100%); */
- }
+}
 .container {
-  display:flex !important;
+  display: flex !important;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -18,12 +17,11 @@
   max-width: 500px;
   width: 100%;
   margin: auto;
- 
 }
 .container > form {
   width: 70%;
-  border:1px solid #dfdfdf;
-  padding:20px;
+  border: 1px solid #dfdfdf;
+  padding: 20px;
   border-radius: 5px;
   background: #fff;
 }
@@ -36,10 +34,10 @@ pre {
 button {
   background: #0563b4 !important;
 }
-p {
+/* p {
   color:red
-}
-.text{
+} */
+.text {
   text-align: center;
   margin-top: 1rem;
 }

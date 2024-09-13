@@ -23,15 +23,6 @@ function Dashboard() {
               alt="First slide"
             />
           </div>
-          {/* <div className="carousel-item">
-      <img className="d-block w-100 carousel-img" src={product4} alt="Second slide"/>
-    </div> */}
-          {/* <div className="carousel-item">
-      <img className="d-block w-100 carousel-img" src={product5} alt="Third slide"/>
-    </div> */}
-          {/* <div className="carousel-item">
-      <img className="d-block w-100 carousel-img" src={product4} alt="Third slide"/>
-    </div> */}
           {/* <div className="carousel-item"> 
       <img className="d-block w-100 carousel-img" src={product5} alt="Third slide"/>
     </div> */}

@@ -1,9 +1,11 @@
 import React, { useContext, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import {useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { UserContext } from "./UserContext";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-function Signup() {
+function Signup({ setSigninVisible, setSignupVisible }) {
   const {
     register,
     handleSubmit,
@@ -17,6 +19,7 @@ function Signup() {
     const result = addUser(data);
     if (result.error) {
       setFormError(result.error);
+      toast.success(result.error)
     } else {
       setFormError(null);
       navigate("/");
@@ -25,8 +28,9 @@ function Signup() {
 
   return (
     <>
-      <div className="full-body">
-        <div className="container">
+    {/* full-body */}
+      <div className="">
+        <div className="container" style={{height : '50%'}}>
           <form onSubmit={handleSubmit(onSubmit)}>
             <h1>Registration </h1>
             <div className="ui divider"></div>
@@ -115,14 +119,22 @@ function Signup() {
             <div className="text">
               <span>
                 Already have an account?{" "}
-                <Link className="link" to="/signin">
-                  Login
-                </Link>
+                <button
+                type="button"
+                className="link-button"
+                onClick={() => {
+                  setSignupVisible(false);
+                  setSigninVisible(true);
+                }}
+              >
+                Login
+              </button>
               </span>
             </div>
           </form>
         </div>
       </div>
+      <ToastContainer/>
     </>
   );
 }

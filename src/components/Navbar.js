@@ -1,38 +1,35 @@
 import React, { useContext, useState } from "react";
 import { UserContext } from "./UserContext";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import logo3 from "../Assets/logo.3.png";
 import "./Dashboard.css";
-// import Cart from "./Cart";
-
+import Cart from "./Cart";
+import { Dialog } from "primereact/dialog";
+import "primereact/resources/themes/lara-light-cyan/theme.css";
+import Signin from "./Signin";
+import Signup from "./Signup";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
-import Aboutpage from "./Aboutpage";
-import Dashboard from "./Dashboard";
 
 function Navbar() {
   const { currentuser, logoutUser, cart } = useContext(UserContext);
   const [active, setActive] = useState("home");
 
-  // currentuser = currentuser?.length>0 ? currentuser : JSON.parse(localStorage.getItem('users'))
-  // console.log(currentuser);
+  const [visible, setVisible] = useState(false);
+  const [position, setPosition] = useState("center");
 
-  const navigate = useNavigate();
+  const [signinVisible, setSigninVisible] = useState(false);
+  const [signupVisible, setSignupVisible] = useState(false);
 
   const handleLogout = () => {
     logoutUser();
     // navigate('/');
   };
 
-  const handleLoginClick = () => {
-    navigate("/signin");
+  const show = (position) => {
+    setPosition(position);
+    setVisible(true);
   };
-
-  const handleCartClick = () => {
-    navigate("/cart");
-    console.log("Handle Cart Click");
-  };
-
   return (
     <>
       <div className="navbar">
@@ -83,19 +80,64 @@ function Navbar() {
           {currentuser ? (
             <button onClick={handleLogout}>Logout</button>
           ) : (
-            <button onClick={handleLoginClick}>Login</button>
+            <>
+              <button onClick={() => setSigninVisible(true)}>Login</button>
+            </>
           )}
-          <FontAwesomeIcon
-            icon={faShoppingCart}
-            className="carts"
-            onClick={handleCartClick}
-            style={{ cursor: "pointer", fontSize: "24px" }}
-          />
+
+          <div className="flex flex-wrap justify-content-center gap-2 mb-2">
+            <FontAwesomeIcon
+              icon={faShoppingCart}
+              label="Right"
+              onClick={() => show("right")}
+              className="carts"
+              style={{ cursor: "pointer", fontSize: "24px" }}
+            />
+          </div>
           <div className="cart-count">{cart.length}</div>
         </div>
       </div>
-      {/* <Dashboard/> */}
-      {/* <Aboutpage /> */}
+      <Dialog
+        header="Signin"
+        visible={signinVisible}
+        style={{ width: "30vw" }}
+        onHide={() => {
+          if (!signinVisible) return;
+          setSigninVisible(false);
+        }}
+      >
+        <Signin
+          setSigninVisible={setSigninVisible}
+          setSignupVisible={setSignupVisible}
+        />
+      </Dialog>
+      <Dialog
+        header="Registration"
+        visible={signupVisible}
+        style={{ width: "40vw", maxHeight: "45vw" }}
+        onHide={() => {
+          if (!signupVisible) return;
+          setSignupVisible(false);
+        }}
+      >
+        <Signup
+          setSigninVisible={setSigninVisible}
+          setSignupVisible={setSignupVisible}
+        />
+      </Dialog>
+
+      <Dialog
+        header="Cart"
+        visible={visible}
+        position={position}
+        style={{ width: "60vw", height: "100%" }}
+        onHide={() => {
+          if (!visible) return;
+          setVisible(false);
+        }}
+      >
+        <Cart />
+      </Dialog>
     </>
   );
 }

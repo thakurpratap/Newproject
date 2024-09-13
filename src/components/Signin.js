@@ -1,9 +1,11 @@
 import React, { useContext, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { UserContext } from "./UserContext";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-function Signin() {
+function Signin({ setSigninVisible, setSignupVisible }) {
   const {
     register,
     handleSubmit,
@@ -19,28 +21,19 @@ function Signin() {
       navigate("/");
     } else {
       setFormError(result.error);
+      toast.success(result.error);
     }
   };
 
   return (
     <>
-      <div className="full-body">
-        <div className="container">
+      {/* full-body */}
+      <div className="">
+        <div className="container" style={{ height: "50%" }}>
           <form onSubmit={handleSubmit(onSubmit)}>
             <h1>LOG IN</h1>
             <div className="ui divider"></div>
             <div className="ui form">
-              {/* <div className="field">
-                <label>First name</label>
-                <input
-                  type="text"
-                  name="firstname"
-                  placeholder="Firstname"
-                  {...register("firstname", {
-                    required: "Firstname is required",
-                  })}
-                />
-              </div> */}
               <div className="field">
                 <label>Email</label>
                 <input
@@ -82,14 +75,22 @@ function Signin() {
             <div className="text">
               <span>
                 Not a member?{" "}
-                <Link className="link" to="/signup">
+                <button
+                  type="button"
+                  className="link-button"
+                  onClick={() => {
+                    setSigninVisible(false);
+                    setSignupVisible(true);
+                  }}
+                >
                   Sign Up
-                </Link>
+                </button>
               </span>
             </div>
           </form>
         </div>
       </div>
+      <ToastContainer />
     </>
   );
 }
