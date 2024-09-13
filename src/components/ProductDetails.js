@@ -2,21 +2,23 @@ import React, { useContext } from "react";
 import { UserContext } from "./UserContext";
 import { useParams } from "react-router-dom";
 import "./ProductDetails.css";
-// import { StarRatings } from './react-star-ratings';
 
 function ProductDetails() {
   const { id } = useParams(); //get the product id from the react router dom
   const { data, addToCart } = useContext(UserContext);
+
+  console.log(typeof (id, ">>>>>>>>>>>>>>>>>>>>>>>id"));
   // const product =  data?.products.find (p => p.id === parseInt(id))
-  const product = data?.products.find((p) => p.id.toString() === id);
+  const product = data?.products.find((p) => p.id == id);
 
   // const findPalette = id => seedPalettes.find(palette => palette.id == id);
   if (!product) {
     return "product is not find";
   }
 
-  const handleAddToCart = () => {
-    addToCart(product);
+  const handleAddToCart = (selectedproduct) => {
+    console.log(selectedproduct, "selectedproduct");
+    addToCart(selectedproduct);
   };
 
   return (
@@ -47,7 +49,9 @@ function ProductDetails() {
 
           <div className="product-description">{product.description}</div>
           <div className="add-to-card">
-            <button onClick={handleAddToCart}>ADD TO CART</button>
+            <button onClick={() => handleAddToCart(product)}>
+              ADD TO CART
+            </button>
             <h6 className="product-category">
               <span>category : {product.category}</span>
             </h6>

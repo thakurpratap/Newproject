@@ -5,8 +5,6 @@ function Homepage() {
   return (
     <>
       <Dashboard />
-      {/* <Aboutpage/> */}
-      {/* <div>Homepage</div> */}
     </>
   );
 }
