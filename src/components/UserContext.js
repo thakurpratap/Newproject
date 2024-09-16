@@ -11,7 +11,7 @@ export const UserProvider = ({ children }) => {
   const currentstoreitems = JSON.parse(localStorage.getItem("currentuser"));
   // const cartstoreitem = JSON.parse(localStorage.getItem("cart"));
 
-  const [users, setUsers] = useState(storeitems); // we are store the data
+  const [users, setUsers] = useState(storeitems || []); // we are store the data
   const [currentuser, SetCurrentuser] = useState(currentstoreitems) || null; // []this is for display the current use name
   const [cart, setCart] = useState([]);
 
