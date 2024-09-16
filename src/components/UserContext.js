@@ -27,9 +27,10 @@ export const UserProvider = ({ children }) => {
   const addUser = (userData) => {
     const userExists = users.some(
       (user) =>
-        user.firstname === userData.firstname &&
-        user.email === userData.email &&
-        user.password === userData.password
+        // user.firstname === userData.firstname &&
+        user.email === userData.email
+        //  &&
+        // user.password === userData.password
     );
     if (userExists) {
       return {

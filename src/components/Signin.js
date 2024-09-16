@@ -19,6 +19,7 @@ function Signin({ setSigninVisible, setSignupVisible }) {
     const result = Exitsuser(data);
     if (result.success) {
       navigate("/");
+      setSigninVisible(false)
     } else {
       setFormError(result.error);
       toast.success(result.error);
