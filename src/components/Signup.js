@@ -22,6 +22,7 @@ function Signup({ setSigninVisible, setSignupVisible }) {
       toast.success(result.error)
     } else {
       setFormError(null);
+      setSignupVisible(false)
       navigate("/");
     }
   };
