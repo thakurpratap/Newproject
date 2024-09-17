@@ -34,9 +34,12 @@ pre {
 button {
   background: #0563b4 !important;
 }
-/* p {
+p {
   color:red
-} */
+}
+.span{
+  color:red
+}
 .text {
   text-align: center;
   margin-top: 1rem;

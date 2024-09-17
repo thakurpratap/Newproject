@@ -1,16 +1,16 @@
 import React, { useContext, useState } from "react";
-import {useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { UserContext } from "./UserContext";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Signup({ setSigninVisible, setSignupVisible }) {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm({ mode: 'onChange' });
   const { addUser } = useContext(UserContext);
   const [formError, setFormError] = useState(null);
   const navigate = useNavigate();
@@ -19,76 +19,108 @@ function Signup({ setSigninVisible, setSignupVisible }) {
     const result = addUser(data);
     if (result.error) {
       setFormError(result.error);
-      toast.success(result.error)
+      toast.success(result.error);
     } else {
       setFormError(null);
-      setSignupVisible(false)
+      setSignupVisible(false);
       navigate("/");
     }
   };
 
   return (
     <>
-    {/* full-body */}
+      {/* full-body */}
       <div className="">
-        <div className="container" style={{height : '50%'}}>
+        <div className="container" style={{ height: "50%" }}>
           <form onSubmit={handleSubmit(onSubmit)}>
             <h1>Registration </h1>
             <div className="ui divider"></div>
             <div className="ui form">
               <div className="field">
-                <label>First name</label>
+                <label>First name <span style={{color : "red"}}>*</span></label>
                 <input
                   type="text"
                   name="firstname"
                   placeholder="Firstname"
                   {...register("firstname", {
                     required: "Firstname is required",
+                    pattern: {
+                      value:  /^[a-zA-Z ]*$/,
+                      message: "Only alphabets are allowed",
+                    },
+                    minLength:{
+                      value: 4,
+                      message: "firstname must be more than 4 characters",
+                    },
+                    maxLength: {
+                      value: 20,
+                      message: "firstname cannot exceed more than 20 characters",
+                    },
                   })}
                 />
               </div>
               <p>{errors.firstname?.message}</p>
+              {/* {errors?.firstName?.type === "pattern" && (
+        <p>Alphabetical characters only</p>
+      )} */}
               <div className="field">
-                <label>Last name</label>
+                <label>Last name <span style={{color : "red"}}>*</span></label>
                 <input
                   type="text"
                   name="lastname"
                   placeholder="Lastname"
                   {...register("lastname", {
                     required: "Lastname is required",
+                    pattern: {
+                      value:  /^[a-zA-Z ]*$/,
+                      message: "Only alphabets are allowed",
+                    },
+                    minLength:{
+                      value: 4,
+                      message: "Lastname must be more than 4 characters",
+                    },
+                       maxLength: {
+                      value: 10,
+                      message: "Lastname cannot exceed more than 10 characters",
+                    },
                   })}
                 />
               </div>
               <p>{errors.lastname?.message}</p>
               <div className="field">
-                <label>Phone number</label>
+                <label>Phone number <span style={{color : "red"}}>*</span></label>
                 <input
-                  type="text"
+                  type="number"
                   name="phonenumber"
                   placeholder="Phonenumber"
                   {...register("phonenumber", {
                     required: "Phonenumber is required",
-                    minLength: {
-                      value: 10,
-                      message: "Password must be more than 4 characters",
+                    pattern: {
+                      value: /^[0-9]{10}$/,
+                      message: "Phone number must be 10 digits",
                     },
-                    maxLength: {
-                      value: 10,
-                      message: "Password cannot exceed more than 10 characters",
-                    },
+                    // minLength: {
+                    //   value: 10,
+                    //   message: "Password must be more than 4 characters",
+                    // },
+                    // maxLength: {
+                    //   value: 10,
+                    //   message: "Password cannot exceed more than 10 characters",
+                    // },
                   })}
                 />
               </div>
               <p>{errors.phonenumber?.message}</p>
               <div className="field">
-                <label>Email</label>
+                <label>Email <span style={{color : "red"}}>*</span></label>
                 <input
                   type="email"
                   placeholder="Email"
                   {...register("email", {
                     required: "Email is required",
                     pattern: {
-                      value: /^\S+@\S+$/i,
+                      // value: /^\S+@\S+$/i,
+                      value :  /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
                       message: "This is not a valid email",
                     },
                   })}
@@ -96,7 +128,7 @@ function Signup({ setSigninVisible, setSignupVisible }) {
               </div>
               <p>{errors.email?.message}</p>
               <div className="field">
-                <label>Password</label>
+                <label>Password <span style={{color : "red"}}>*</span></label>
                 <input
                   type="password"
                   placeholder="Password"
@@ -121,21 +153,21 @@ function Signup({ setSigninVisible, setSignupVisible }) {
               <span>
                 Already have an account?{" "}
                 <button
-                type="button"
-                className="link-button"
-                onClick={() => {
-                  setSignupVisible(false);
-                  setSigninVisible(true);
-                }}
-              >
-                Login
-              </button>
+                  type="button"
+                  className="link-button"
+                  onClick={() => {
+                    setSignupVisible(false);
+                    setSigninVisible(true);
+                  }}
+                >
+                  Login
+                </button>
               </span>
             </div>
           </form>
         </div>
       </div>
-      <ToastContainer/>
+      <ToastContainer />
     </>
   );
 }

@@ -13,8 +13,9 @@ function Aboutpage() {
   const {
     register,
     handleSubmit,
+    // onChange,
     formState: { errors },
-  } = useForm();
+  } = useForm({ mode: 'onChange' });
 
   const onSubmit = () => {
     toast.success("Form submitted successfully!");
@@ -72,23 +73,28 @@ function Aboutpage() {
             <div className="">
               <div className="container" style={{ height: "20%" }}>
                 <form onSubmit={handleSubmit(onSubmit)}>
-                  <h1>LOG IN</h1>
+                  <h1>Contact Us</h1>
                   <div className="ui divider"></div>
                   <div className="ui form">
                     <div className="field">
-                      <label>First name</label>
+                      <label>First name <span style={{color : "red"}}>*</span></label>
                       <input
                         type="text"
                         name="firstname"
                         placeholder="Firstname"
+                        // onChange={onChange}
                         {...register("firstname", {
                           required: "Firstname is required",
+                          pattern :{
+                            value:  /^[A-Za-z]+$/,
+                            message : "Only alphabets are allowed"
+                          }
                         })}
                       />
                     </div>
                     <p>{errors.firstname?.message}</p>
                     <div className="field">
-                      <label>Email</label>
+                      <label>Email <span style={{color : "red"}}>*</span></label>
                       <input
                         type="email"
                         placeholder="Email"
@@ -104,20 +110,25 @@ function Aboutpage() {
                     </div>
                     <p>{errors.email?.message}</p>
                     <div className="field">
-                      <label>Address</label>
+                      <label>Address <span style={{color : "red"}}>*</span></label>
                       <input
                         type="text"
+                        name="address"
                         placeholder="Address"
-                        {...register("password", {
+                        {...register("address", {
                           required: "address is required",
                           minLength: {
-                            value: 10,
+                            value: 20,
                             message: "address must be more than 10 words",
                           },
+                          maxLength : {
+                            value : 50,
+                            message : "address must be more than 50 words"
+                          }
                         })}
                       />
                     </div>
-                    <p>{errors.password?.message}</p>
+                    <p>{errors.address?.message}</p>
                     <button className="fluid ui button blue">Submit</button>
                   </div>
                 </form>
