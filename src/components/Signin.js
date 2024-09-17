@@ -10,7 +10,7 @@ function Signin({ setSigninVisible, setSignupVisible }) {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm({ mode: 'onChange' });
   const { Exitsuser } = useContext(UserContext);
   const [formError, setFormError] = useState(null);
   const navigate = useNavigate();
@@ -36,7 +36,7 @@ function Signin({ setSigninVisible, setSignupVisible }) {
             <div className="ui divider"></div>
             <div className="ui form">
               <div className="field">
-                <label>Email</label>
+                <label>Email <span style={{color : "red"}}>*</span></label>
                 <input
                   type="email"
                   placeholder="Email"
@@ -44,7 +44,7 @@ function Signin({ setSigninVisible, setSignupVisible }) {
                     required: "Email is required",
                     // required : true,
                     pattern: {
-                      value: /^\S+@\S+$/i,
+                      value:  /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
                       message: "This is not a valid email",
                     },
                   })}
@@ -52,7 +52,7 @@ function Signin({ setSigninVisible, setSignupVisible }) {
               </div>
               <p>{errors.email?.message}</p>
               <div className="field">
-                <label>Password</label>
+                <label>Password <span style={{color : "red"}}>*</span></label>
                 <input
                   type="password"
                   placeholder="Password"
