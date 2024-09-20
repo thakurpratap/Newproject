@@ -7,13 +7,15 @@ export const UserContext = createContext();
 export const UserProvider = ({ children }) => {
   // Fetch data from localStorage on load
 
-  const storeitems = JSON.parse(localStorage.getItem("users"));
-  const currentstoreitems = JSON.parse(localStorage.getItem("currentuser"));
+  const storeitems = JSON.parse(localStorage.getItem("users")) || [];
+  const currentstoreitems = JSON.parse(localStorage.getItem("currentuser")) || null;
+  // const contactuserstoredata = JSON.parse(localStorage.getItem('contactuser'))
   // const cartstoreitem = JSON.parse(localStorage.getItem("cart"));
 
-  const [users, setUsers] = useState(storeitems || []); // we are store the data
-  const [currentuser, SetCurrentuser] = useState(currentstoreitems) || null; // []this is for display the current use name
+  const [users, setUsers] = useState(storeitems); // we are store the data
+  const [currentuser, SetCurrentuser] = useState(currentstoreitems); // []this is for display the current use name
   const [cart, setCart] = useState([]);
+  const [contactuser , setContactuser] = useState([]) // contactuserstoredata
 
   // take the data from localStorage when state changes and set the data in this veriable
   useEffect(() => {
@@ -23,6 +25,10 @@ export const UserProvider = ({ children }) => {
   useEffect(() => {
     localStorage.setItem("currentuser", JSON.stringify(currentuser));
   }, [currentuser]);
+
+// useEffect(() =>{
+//   localStorage.setItem('contactuser', JSON.stringify(contactuser))
+// },[contactuser])
 
   const addUser = (userData) => {
     const userExists = users.some(
@@ -73,6 +79,15 @@ export const UserProvider = ({ children }) => {
     );
   };
 
+  const contactusers = (contactuserdata) =>{
+    const contactuserExists = contactuser.some((user) => user.email === contactuserdata.email )
+    if(contactuserExists){
+      return {error :  "This email ID Already Present"}
+    }
+    setContactuser([...contactuser, contactuserdata])
+    return { success: true };
+  }
+
   const fetchUsers = async () => {
     const { data } = await axios.get("https://dummyjson.com/products");
     return data;
@@ -96,6 +111,8 @@ export const UserProvider = ({ children }) => {
         cart,
         addToCart,
         setCart,
+        contactusers,
+        setUsers,
       }}
     >
       {children}

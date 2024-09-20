@@ -44,3 +44,8 @@ p {
   text-align: center;
   margin-top: 1rem;
 }
+.link-button{
+  background: white !important;
+  border: none;
+  color: rgb(100, 100, 232);
+}

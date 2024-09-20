@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState , useContext} from "react";
 import offerbanner3 from "../Assets/ele3.png";
 import "./Aboutpage.css";
 import { Dialog } from "primereact/dialog";
@@ -6,20 +6,30 @@ import "primereact/resources/themes/lara-light-cyan/theme.css";
 import { useForm } from "react-hook-form";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { UserContext } from "./UserContext";
 
 function Aboutpage() {
   const [visible, setVisible] = useState(false);
+  const { contactusers } = useContext(UserContext);
 
   const {
     register,
     handleSubmit,
     // onChange,
+    reset ,
     formState: { errors },
   } = useForm({ mode: 'onChange' });
 
-  const onSubmit = () => {
-    toast.success("Form submitted successfully!");
-    setVisible(false);
+  const onSubmit = (data) => {
+    const result = contactusers(data)
+    if(result.error){
+      toast.error(result.error);
+    } else{
+      toast.success("Form submitted successfully!");
+      // reset ();
+      setVisible(false);
+    }
+   
   };
 
   return (
