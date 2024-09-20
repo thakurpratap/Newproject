@@ -1,5 +1,15 @@
 import React from "react";
 import SaleBanner from "../Assets/sale.png";
+// import products5 from "../Assets/3rdpage.png"
+// import products2 from "../Assets/4thpage.png"
+// import products3 from "../Assets/5thpage.png"
+// import products4 from "../Assets/1stpage.png"
+
+// import products5 from "../Assets/ele1.png"
+import products2 from "../Assets/ele8.png"
+import products3 from "../Assets/ele5.png"
+// import products4 from "../Assets/ele4.png"
+
 import "./Dashboard.css";
 import Aboutpage from "./Aboutpage";
 import shipment4 from "../Assets/distribution.png";
@@ -24,7 +34,16 @@ function Dashboard() {
             />
           </div>
           {/* <div className="carousel-item"> 
-      <img className="d-block w-100 carousel-img" src={product5} alt="Third slide"/>
+      <img className="d-block w-100 carousel-img" src={products5} alt="Third slide"/>
+    </div> */}
+    <div className="carousel-item"> 
+      <img className="d-block w-100 carousel-img" src={products2} alt="Third slide"/>
+    </div>
+    <div className="carousel-item"> 
+      <img className="d-block w-100 carousel-img" src={products3} alt="Third slide"/>
+    </div>
+    {/* <div className="carousel-item"> 
+      <img className="d-block w-100 carousel-img" src={products4} alt="Third slide"/>
     </div> */}
         </div>
         <a
