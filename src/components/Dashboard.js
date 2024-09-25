@@ -4,12 +4,10 @@ import SaleBanner from "../Assets/sale.png";
 // import products2 from "../Assets/4thpage.png"
 // import products3 from "../Assets/5thpage.png"
 // import products4 from "../Assets/1stpage.png"
-
 // import products5 from "../Assets/ele1.png"
 import products2 from "../Assets/ele8.png"
 import products3 from "../Assets/ele5.png"
 // import products4 from "../Assets/ele4.png"
-
 import "./Dashboard.css";
 import Aboutpage from "./Aboutpage";
 import shipment4 from "../Assets/distribution.png";
@@ -129,6 +127,7 @@ function Dashboard() {
         </div>
       </div>
       <Aboutpage />
+      {/* <Homeproduct/> */}
     </>
   );
 }

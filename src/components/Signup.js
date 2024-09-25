@@ -90,22 +90,32 @@ function Signup({ setSigninVisible, setSignupVisible }) {
               <div className="field">
                 <label>Phone number <span style={{color : "red"}}>*</span></label>
                 <input
-                  type="number"
+                  // type="number"
                   name="phonenumber"
+                  type="tel"
                   placeholder="Phonenumber"
                   {...register("phonenumber", {
                     required: "Phonenumber is required",
-                    pattern: {
-                      value: /^[0-9]{10}$/,
-                      message: "Phone number must be 10 digits",
+                    pattern:{
+                      value: /^(0|[6-9]\d*)(\.\d+)?$/,
+                      // /^[6-9]\d{9}$/,
+                      message : "phone number canot accept 0 to 5 number"
+                      // message: "Phone number must be starting with 6, 7, 8, or 9",
                     },
+                     // validNumber: (value) => /^[6-9]\d{9}$/.test(value) || "Phone number must be 10 digits",
+                      // startsWithInvalidDigit: (value) => !/^[0-5]/.test(value) || "Phone number cannot start with 0 to 5",
+                    // pattern: {
+                    //   value: /^[0-9]{10}$/,
+                    //   message: "Phone number must be 10 digits",
+                    // },
+
                     // minLength: {
                     //   value: 10,
-                    //   message: "Password must be more than 4 characters",
+                    //   message: "Phone number must be 10 digits",
                     // },
                     // maxLength: {
                     //   value: 10,
-                    //   message: "Password cannot exceed more than 10 characters",
+                    //   message: "Phone number cannot exceed more than 10 digits",
                     // },
                   })}
                 />

@@ -1,12 +1,12 @@
-import React from "react";
-import Dashboard from "./Dashboard";
+// import React from "react";
+// import Dashboard from "./Dashboard";
 
-function Homepage() {
-  return (
-    <>
-      <Dashboard />
-    </>
-  );
-}
+// function Homepage() {
+//   return (
+//     <>
+//       <Dashboard />
+//     </>
+//   );
+// }
 
-export default Homepage;
+// export default Homepage;

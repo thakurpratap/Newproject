@@ -1,28 +1,28 @@
-import React from 'react';
+import React  from 'react';
 import './App.css';
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import Signin from './components/Signin';
 import Signup from './components/Signup';
 import Dashboard from './components/Dashboard';
-import Homepage from './components/Homepage';
 import Aboutpage from './components/Aboutpage';
 import Shoppage from './components/Shoppage';
 import Contactpage from './components/Contactpage';
 import ProductDetails from './components/ProductDetails';
 import Navbar from './components/Navbar';
 import Cart from './components/Cart';
+import Footer from './components/Footer';
+
 
 function App() {
+
   return (
     <>
     <BrowserRouter>
     <Navbar />
         <Routes>
-        {/* <Route path="/navbar" exact element={<Navbar />} /> */}
+        <Route path="/" exact element={<Dashboard />} />
           <Route path="/signin" exact element={<Signin />} />
           <Route path="/signup" exact element={<Signup />} />
-          <Route path="/dashboard" exact element={<Dashboard />} />
-          <Route path="/" exact element={<Homepage />} />
           <Route path="/aboutpage" exact element={<Aboutpage />} />
           <Route path="/shoppage" exact element={<Shoppage />} />
           <Route path="/contactpage" exact element={<Contactpage />} />
@@ -30,6 +30,8 @@ function App() {
           <Route path="/cart" exact element={<Cart />} />
         </Routes>
       </BrowserRouter>
+      <Footer/>
+
     </>
   );
 }

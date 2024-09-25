@@ -49,3 +49,12 @@ p {
   border: none;
   color: rgb(100, 100, 232);
 }
+.btn{
+  color: white;
+}
+.forgotpassword{
+  margin-top: 10px;
+  display: flex;
+  border: none;
+  gap: 20px;
+}
