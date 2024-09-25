@@ -172,10 +172,14 @@ console.log(resetEmail , "resetmail id ");
                   // })}
                 />
               </div>
+              
               <p>{errors.email?.message}</p>
-              <button onClick={handlePasswordReset}>Submit</button>
-          <button onClick={() => setForgetPasswordVisible(false)}>Cancel</button>
-              </div>
+              <div className="forgotpassword">
+              <button className='btn' onClick={handlePasswordReset}>Submit</button>
+          <button className='btn' onClick={() => setForgetPasswordVisible(false)}>Cancel</button>
+          </div>
+          </div>
+              
         </Dialog>
       )}
   

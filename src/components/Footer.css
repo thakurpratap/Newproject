@@ -1,0 +1,72 @@
+/* .footer{
+    background: rgb(40, 35, 35);
+} */
+ /* .footer{
+    margin-bottom: 200px;
+ } */
+.spa {
+    height: 60px;
+    width: 60px;
+    display: block;
+    background: #fff;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    border-radius: 50%;
+    position: relative;
+    z-index: 2;
+  }
+  .fonts {
+    font-size: 30px;
+    margin-top: 16px;
+  }
+  .tooltips {
+    background-color: #fff;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    font-size: 1rem;
+    padding: 5px 15px;
+    border-radius: 30px;
+    position: absolute;
+    top: 0px;
+    opacity: 0;
+  }
+  .hr{
+color: black;
+background: black;
+  }
+.facebooka:hover .spa{
+  background: #3b5999;
+  color: white;
+}
+.twitter:hover .spa{
+    background: #46c1f6;
+    color: white;
+}
+.youtube:hover .spa{
+    background: #de463b;
+    color: white;
+}
+.github:hover .spa{
+    background: #333;
+    color: white;
+}
+.instagram:hover .spa{
+    background: #e1306c;
+    color: white;
+}
+.footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+.footer-link{
+    display: flex;
+    list-style: none;
+    gap: 50px;
+    color: #252525;
+    font-size: 20px;
+}
+.footer-link li{
+    cursor: pointer;
+}

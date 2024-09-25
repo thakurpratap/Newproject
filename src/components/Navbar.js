@@ -1,6 +1,6 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState,useEffect } from "react";
 import { UserContext } from "./UserContext";
-import { Link } from "react-router-dom";
+import { Link  } from "react-router-dom";
 import logo3 from "../Assets/logo.3.png";
 import "./Dashboard.css";
 import Cart from "./Cart";
@@ -10,8 +10,10 @@ import Signin from "./Signin";
 import Signup from "./Signup";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+// import Dashboard from "./Dashboard";
 
 function Navbar() {
+
   const { currentuser, logoutUser, cart } = useContext(UserContext);
   const [active, setActive] = useState("home");
 
@@ -20,6 +22,7 @@ function Navbar() {
 
   const [signinVisible, setSigninVisible] = useState(false);
   const [signupVisible, setSignupVisible] = useState(false);
+
 
   const handleLogout = () => {
     logoutUser();
@@ -43,7 +46,7 @@ function Navbar() {
             className={active === "home" ? "active" : ""}
           >
             {" "}
-            <Link className="links" to="/dashboard">
+            <Link className="links" to="/">
               Home
             </Link>
           </li>
@@ -97,6 +100,8 @@ function Navbar() {
           <div className="cart-count">{cart.length}</div>
         </div>
       </div>
+
+      {/* <Dashboard/> */}
       <Dialog
         header="Signin"
         visible={signinVisible}
@@ -111,6 +116,7 @@ function Navbar() {
           setSignupVisible={setSignupVisible}
         />
       </Dialog>
+
       <Dialog
         header="Registration"
         visible={signupVisible}
