@@ -19,12 +19,13 @@ function Signup({ setSigninVisible, setSignupVisible }) {
     const result = addUser(data);
     if (result.error) {
       setFormError(result.error);
-      toast.success(result.error);
+      toast.error(result.error);
     } else {
       setFormError(null);
       setSignupVisible(false);
-      toast.success('successfully register');
-      navigate("/");
+      setSigninVisible(true);
+      toast.success('successfully register go to login ');
+      // navigate("/");
     }
   };
 
@@ -178,7 +179,7 @@ function Signup({ setSigninVisible, setSignupVisible }) {
           </form>
         </div>
       </div>
-      <ToastContainer />
+      {/* <ToastContainer /> */}
     </>
   );
 }

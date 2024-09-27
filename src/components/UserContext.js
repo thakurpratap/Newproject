@@ -44,7 +44,7 @@ export const UserProvider = ({ children }) => {
       };
     }
     setUsers([...users, userData]);
-    SetCurrentuser(userData);
+    // SetCurrentuser(userData);
     return { success: true };
   };
 
