@@ -23,6 +23,7 @@ function Signup({ setSigninVisible, setSignupVisible }) {
     } else {
       setFormError(null);
       setSignupVisible(false);
+      toast.success('successfully register');
       navigate("/");
     }
   };
