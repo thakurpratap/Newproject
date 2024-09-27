@@ -2,11 +2,33 @@ import React, { useContext } from "react";
 import { UserContext } from "./UserContext";
 import "./Cart.css";
 
+
+
 function Cart() {
-  const { cart, error, isLoading } = useContext(UserContext);
+  const { cart, error, isLoading,setCart , updatedCart} = useContext(UserContext);
+  // const [number, setNumber] = useState(1)
 
   if (isLoading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
+
+    // Function to remove an item from the cart 
+    const handleRemoveItem = (id) => {
+      const updatedCart = cart.filter((cartProduct) => cartProduct.id !== id);
+      setCart(updatedCart); // Update the cart usestate veriable
+    };
+
+  //   const updateQuantity = (id, value) => {
+	// 		// cart?.map((item) => item.id === id) &&
+	// 		setCart((prev) => prev + value);
+	// };
+
+  const updateQuantity = (id, value) => {
+    const updatedCart = cart.map((item) =>
+      item.id === id ? { ...item, quantity : item.quantity + value } : item
+    )
+    // .filter((item) => item.quantity > 0); // Prevent negative quantities
+    setCart(updatedCart);
+  };
 
   return (
     <>
@@ -15,8 +37,8 @@ function Cart() {
           <p>Products</p>
           <p>Title</p>
           <p>Price</p>
-          {/* <p>Quantity</p> */}
           <p>Total</p>
+          <p>Quantity</p> 
           <p>Remove</p>
         </div>
         <hr />
@@ -31,12 +53,24 @@ function Cart() {
                 maxWidth: "80px",
               }}
             />
-            {/* <img src="" alt="" className="carticon-product-icon" /> */}
             <p>{cartproduct.brand}</p>
             <p>${cartproduct.price}</p>
-            {/* <button className="cartitems-quantity">{cartproduct.id}</button> */}
-            <p>{cartproduct.price}</p>
-            <img src="" alt="" className="remove-cart-itmes" />
+            {/* <p>{cartproduct.price}</p> */}
+            <p>${(cartproduct.price * cartproduct.quantity).toFixed(2)}</p>
+            <div className='counter'>
+      <button onClick={() => updateQuantity(cartproduct.id, -1)} disabled={cartproduct.id <= 1}>-</button>
+      <p className="quantity">{cartproduct.quantity}</p>
+      <button onClick={() => updateQuantity(cartproduct.id, 1)}>+</button>
+      </div>
+            {/* <p>{cartproduct.quantity}</p> */}
+            {/* <img src="" alt="" className="remove-cart-itmes" /> */}
+            <button
+              onClick={() => handleRemoveItem(cartproduct.id)}
+              className="remove-cart-items"
+            >
+              Remove
+            </button>
+
           </div>
         ))}
         ;

@@ -71,12 +71,28 @@ export const UserProvider = ({ children }) => {
   };
 
   //  adding the products to the cart
-  const addToCart = (product) => {
-    setCart([...cart, product]);
-    console.log(
-      [...cart, product],
-      ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
-    );
+    const addToCart = (product) => {
+    const productcart = cart.find((cartitems) => cartitems.id === product.id )
+    // if(productcart){
+    //  const updatedProduct = {
+    //     ...product,
+    //     quantity : product.quantity + 1
+    //   }
+    //   setCart([...cart, updatedProduct]);
+    //   console.log(cart, updatedProduct, "updatedProduct")
+    // }else{
+    //   setCart([...cart, product]);
+    // }
+    if (productcart) {
+      // Update the product quantity in the cart
+      const updatedCart = cart.map((cartItem) =>
+        cartItem.id === product.id ? { ...cartItem, quantity: cartItem.quantity + 1 } : cartItem
+      );
+      setCart(updatedCart);
+    } else {
+      // Add the product to the cart with an initial quantity of 1
+      setCart([...cart,  { ...product, quantity : 1} ]);
+    }
   };
 
   const contactusers = (contactuserdata) =>{

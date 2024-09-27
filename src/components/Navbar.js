@@ -1,4 +1,4 @@
-import React, { useContext, useState,useEffect } from "react";
+import React, { useContext, useState } from "react";
 import { UserContext } from "./UserContext";
 import { Link  } from "react-router-dom";
 import logo3 from "../Assets/logo.3.png";
@@ -10,6 +10,8 @@ import Signin from "./Signin";
 import Signup from "./Signup";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import { toast } from "react-toastify";
+
 // import Dashboard from "./Dashboard";
 
 function Navbar() {
@@ -26,6 +28,7 @@ function Navbar() {
 
   const handleLogout = () => {
     logoutUser();
+    toast.success("Successfully logout");
     // navigate('/');
   };
 

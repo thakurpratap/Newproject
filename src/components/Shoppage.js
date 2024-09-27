@@ -77,7 +77,6 @@ function Shoppage() {
         />
         <button>Search</button>
       </div>
-
       <div className="items">
         {filteredProducts?.length > 0 ? (
           filteredProducts.map((product) => (

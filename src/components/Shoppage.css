@@ -8,7 +8,6 @@
 .item {
   border: 1px solid #ddd;
   padding: 10px;
-  /* box-shadow: 0 4px 8px rgba(182, 39, 39, 0.1); */
 }
 .item-detais {
   display: flex;

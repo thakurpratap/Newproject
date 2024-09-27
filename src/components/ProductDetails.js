@@ -19,6 +19,7 @@ function ProductDetails() {
   const handleAddToCart = (selectedproduct) => {
     console.log(selectedproduct, "selectedproduct");
     addToCart(selectedproduct);
+    // setNumber(selectedproduct)
   };
 
   return (

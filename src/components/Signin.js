@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { UserContext } from "./UserContext";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Dialog } from "primereact/dialog";
 
@@ -113,7 +113,7 @@ console.log(resetEmail , "resetmail id ");
             </div>
             {formError && <p style={{ color: "red" }}>{formError}</p>}
             {/* Forget Password Section */}
-            <span>Forget password?</span>
+            <span>Forgot Password?</span>
             <button
               type="button"
               onClick={() => setForgetPasswordVisible(true)}
@@ -139,7 +139,7 @@ console.log(resetEmail , "resetmail id ");
           </form>
         </div>
       </div>
-      <ToastContainer />
+      {/* <ToastContainer /> */}
 
  {/* Forget Password Dialog */}
 

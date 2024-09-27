@@ -15,3 +15,27 @@
   font-size: 18px;
   font-weight: 600;
 }
+.cartitems-formt-main p{
+  color: black;
+}
+.counter{
+  display: flex !important;
+  justify-content: center;
+  gap: 10px;
+}
+.counter button{
+  max-height: 30px;
+  max-width: 30px;
+  background: white !important;
+}
+.quantity{
+  align-items: center;
+  justify-content: center;
+}
+.remove-cart-items{
+  max-height: 30px;
+  color: antiquewhite;
+  /* max-width: 30px; */
+  border: none;
+  background: red !important;
+}

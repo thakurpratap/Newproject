@@ -14,6 +14,7 @@ import shipment4 from "../Assets/distribution.png";
 import Best from "../Assets/best.png";
 import shopbag from "../Assets/order.png";
 import payment from "../Assets/credit-card.png";
+import Homeproduct from "./Homeproduct";
 
 function Dashboard() {
   return (
@@ -127,7 +128,7 @@ function Dashboard() {
         </div>
       </div>
       <Aboutpage />
-      {/* <Homeproduct/> */}
+      <Homeproduct/>
     </>
   );
 }

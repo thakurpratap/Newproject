@@ -41,7 +41,7 @@ function Signup({ setSigninVisible, setSignupVisible }) {
                 <input
                   type="text"
                   name="firstname"
-                  placeholder="Firstname"
+                  placeholder="First name"
                   {...register("firstname", {
                     required: "Firstname is required",
                     pattern: {
@@ -50,11 +50,11 @@ function Signup({ setSigninVisible, setSignupVisible }) {
                     },
                     minLength:{
                       value: 4,
-                      message: "firstname must be more than 4 characters",
+                      message: "Firstname must be more than 4 characters",
                     },
                     maxLength: {
                       value: 20,
-                      message: "firstname cannot exceed more than 20 characters",
+                      message: "Firstname cannot exceed more than 20 characters",
                     },
                   })}
                 />
@@ -68,7 +68,7 @@ function Signup({ setSigninVisible, setSignupVisible }) {
                 <input
                   type="text"
                   name="lastname"
-                  placeholder="Lastname"
+                  placeholder="Last name"
                   {...register("lastname", {
                     required: "Lastname is required",
                     pattern: {
@@ -77,11 +77,11 @@ function Signup({ setSigninVisible, setSignupVisible }) {
                     },
                     minLength:{
                       value: 4,
-                      message: "Lastname must be more than 4 characters",
+                      message: "Last name must be more than 4 characters",
                     },
                        maxLength: {
                       value: 10,
-                      message: "Lastname cannot exceed more than 10 characters",
+                      message: "Last name cannot exceed more than 10 characters",
                     },
                   })}
                 />
@@ -113,10 +113,10 @@ function Signup({ setSigninVisible, setSignupVisible }) {
                     //   value: 10,
                     //   message: "Phone number must be 10 digits",
                     // },
-                    // maxLength: {
-                    //   value: 10,
-                    //   message: "Phone number cannot exceed more than 10 digits",
-                    // },
+                    maxLength: {
+                      value: 10,
+                      message: "Phone number cannot exceed more than 10 digits",
+                    },
                   })}
                 />
               </div>

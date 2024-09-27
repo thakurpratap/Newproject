@@ -15,39 +15,39 @@ function Footer() {
         <ul className='footer-link'>
             <li>Company</li>
             <li>Product</li>
-            <li>offices</li>
+            <li>Offices</li>
             <li>About</li>
             <li>Contact</li>
         </ul>
 
      <div className= " wrapper d-flex flex-row mb-5 justify-content-evenly" >
     <div className='icon facebooka'>
-    <a href="https://www.facebook.com"  className="icon facebooka">
+    <a href="https://www.facebook.com" target='_blank' rel="noopener noreferrer" className="icon facebooka">
     <div className='tooltips'>Facebook</div>
-    <span className='spa'><FontAwesomeIcon className="fonts" icon={faFacebookF}/> </span>
+    <span href="https://www.facebook.com"  className='spa'><FontAwesomeIcon className="fonts" icon={faFacebookF}/> </span>
     </a>
     </div>
 
     <div className='icon twitter'>
-    <a href="https://www.twitter.com" className="icon twitter">
+    <a href="https://www.twitter.com" target='_blank' rel="noopener noreferrer" className="icon twitter">
     <div className='tooltips'>twitter</div>
     <span className='spa'><FontAwesomeIcon className="fonts" icon={faTwitter}/> </span>
     </a>
     </div>
     <div className='icon youtube'>
-    <a href="https://www.youtube.com" className="icon youtube">
+    <a href="https://www.youtube.com" target='_blank' rel="noopener noreferrer" className="icon youtube">
     <div className='tooltips'>youtube</div>
     <span className='spa'><FontAwesomeIcon className="fonts" icon={faYoutube}/> </span>
     </a>
     </div>
     <div className='icon github'>
-    <a href="https://www.github.com" className="icon github">
+    <a href="https://www.github.com" target='_blank' rel="noopener noreferrer" className="icon github">
     <div className='tooltips'>github</div>
     <span className='spa'><FontAwesomeIcon className="fonts" icon={faGithub}/> </span>
     </a>
     </div>
     <div className='icon instagram'>
-    <a href="https://www.instagram.com"  className="icon instagram">
+    <a href="https://www.instagram.com"  target='_blank' rel="noopener noreferrer" className="icon instagram">
     <div className='tooltips'>instagram</div>
     <span className='spa'><FontAwesomeIcon className="fonts" icon={faInstagram}/> </span>
     </a>
